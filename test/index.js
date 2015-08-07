@@ -39,7 +39,7 @@ describe('bip69', function () {
 
         var actual = bip69.sortOutputs(outputs)
 
-        assert.deepEqual(getIndexOrder(f.outputs, actual), f.expected)
+        assert.deepEqual(getIndexOrder(outputs, actual), f.expected)
       })
     })
   })

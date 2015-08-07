@@ -3,7 +3,7 @@ function inputComparator (a, b) {
 }
 
 function outputComparator (a, b) {
-  return a.value - b.value
+  return a.value - b.value || a.script.compare(b.script)
 }
 
 function sortInputs (inputs) {
