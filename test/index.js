@@ -17,7 +17,7 @@ describe('bip69', function () {
       it('is ' + f.description, function () {
         var actual = bip69.sortInputs(f.inputs)
 
-        assert.equal(getIndexOrder(f.inputs, actual), f.expected)
+        assert.deepEqual(getIndexOrder(f.inputs, actual), f.expected)
       })
     })
   })
@@ -39,7 +39,7 @@ describe('bip69', function () {
 
         var actual = bip69.sortOutputs(outputs)
 
-        assert.equal(getIndexOrder(f.outputs, actual), f.expected)
+        assert.deepEqual(getIndexOrder(f.outputs, actual), f.expected)
       })
     })
   })
