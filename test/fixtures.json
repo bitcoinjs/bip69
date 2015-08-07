@@ -129,15 +129,15 @@
       "description": "Ordered by Amount, ascending",
       "outputs": [
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 3000
         },
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 2000
         },
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 1000
         }
       ],
@@ -147,15 +147,15 @@
       "description": "Ordered by Script, ascending",
       "outputs": [
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 1000
         },
         {
-          "scriptHex": "22222222",
+          "script": "22222222",
           "value": 1000
         },
         {
-          "scriptHex": "11111111",
+          "script": "11111111",
           "value": 1000
         }
       ],
@@ -165,19 +165,19 @@
       "description": "Ordered by Amount, then Script",
       "outputs": [
         {
-          "scriptHex": "11111111",
+          "script": "11111111",
           "value": 1000
         },
         {
-          "scriptHex": "11111111",
+          "script": "11111111",
           "value": 2000
         },
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 3000
         },
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 2000
         }
       ],
@@ -187,23 +187,23 @@
       "description": "Sorting is irrelevant for equivalent outputs",
       "outputs": [
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 2000
         },
         {
-          "scriptHex": "11111111",
+          "script": "11111111",
           "value": 2000
         },
         {
-          "scriptHex": "00000000",
+          "script": "00000000",
           "value": 2000
         },
         {
-          "scriptHex": "11111111",
+          "script": "11111111",
           "value": 3000
         },
         {
-          "scriptHex": "22222222",
+          "script": "22222222",
           "value": 3000
         }
       ],
@@ -213,11 +213,11 @@
       "description": "BIP69 test vector 1",
       "outputs": [
         {
-          "scriptHex": "76a9144a5fba237213a062f6f57978f796390bdcf8d01588ac",
+          "script": "76a9144a5fba237213a062f6f57978f796390bdcf8d01588ac",
           "value": 400057456
         },
         {
-          "scriptHex": "76a9145be32612930b8323add2212a4ec03c1562084f8488ac",
+          "script": "76a9145be32612930b8323add2212a4ec03c1562084f8488ac",
           "value": 40000000000
         }
       ],
@@ -227,11 +227,11 @@
       "description": "BIP69 test vector 2",
       "outputs": [
         {
-          "scriptHex": "41046a0765b5865641ce08dd39690aade26dfbf5511430ca428a3089261361cef170e3929a68aee3d8d4848b0c5111b0a37b82b86ad559fd2a745b44d8e8d9dfdc0cac",
+          "script": "41046a0765b5865641ce08dd39690aade26dfbf5511430ca428a3089261361cef170e3929a68aee3d8d4848b0c5111b0a37b82b86ad559fd2a745b44d8e8d9dfdc0cac",
           "value": 100000000
         },
         {
-          "scriptHex": "41044a656f065871a353f216ca26cef8dde2f03e8c16202d2e8ad769f02032cb86a5eb5e56842e92e19141d60a01928f8dd2c875a390f67c1f6c94cfc617c0ea45afac",
+          "script": "41044a656f065871a353f216ca26cef8dde2f03e8c16202d2e8ad769f02032cb86a5eb5e56842e92e19141d60a01928f8dd2c875a390f67c1f6c94cfc617c0ea45afac",
           "value": 2400000000
         }
       ],

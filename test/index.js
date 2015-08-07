@@ -26,17 +26,11 @@ describe('bip69', function () {
     fixtures.outputs.forEach(function (f) {
       it('is ' + f.description, function () {
         var outputs = f.outputs.map(function (fo) {
-          if (fo.script) {
-            var bitcoinjs = require('bitcoinjs-lib')
-            fo.scriptHex = bitcoinjs.Script.fromASM(fo.script).toBuffer().toString('hex')
-          }
-
           return {
-            script: new Buffer(fo.scriptHex),
+            script: new Buffer(fo.script),
             value: fo.value
           }
         })
-
         var actual = bip69.sortOutputs(outputs)
 
         assert.deepEqual(getIndexOrder(outputs, actual), f.expected)
