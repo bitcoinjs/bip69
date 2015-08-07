@@ -1,9 +1,17 @@
+function inputComparator (a, b) {
+  return a.txId.localeCompare(b.txId)
+}
+
+function outputComparator (a, b) {
+  return a.value - b.value
+}
+
 function sortInputs (inputs) {
-  return inputs.sort()
+  return inputs.concat().sort(inputComparator)
 }
 
 function sortOutputs (outputs) {
-  return outputs.sort()
+  return outputs.concat().sort(outputComparator)
 }
 
 module.exports = function bip69 (inputs, outputs) {
