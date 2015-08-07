@@ -1,6 +1,6 @@
 {
   "name": "bip69",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "bip69",
   "author": "Daniel Cousens",
   "license": "MIT",
@@ -25,8 +25,13 @@
   },
   "config": {
     "blanket": {
-      "pattern": [""],
-      "data-cover-never": ["node_modules", "test"]
+      "pattern": [
+        ""
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ]
     },
     "travis-cov": {
       "threshold": 100
