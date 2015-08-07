@@ -4,7 +4,7 @@ function inputComparator (a, b) {
   Array.prototype.reverse.call(aa)
   Array.prototype.reverse.call(bb)
 
-  return aa.compare(bb)
+  return aa.compare(bb) || a.vout - b.vout
 }
 
 function outputComparator (a, b) {
