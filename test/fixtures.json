@@ -1,85 +1,144 @@
 [
-  {
-    "description":
-    "inputs": [
-      {
-        "txId": "aaaaaa0000000000000000000000000000000000000000000000000000000000",
-        "vout": 0
-      },
-      {
-        "txId": "bbbbbb0000000000000000000000000000000000000000000000000000000000",
-        "vout": 0
-      },
-      {
-        "txId": "cccccc0000000000000000000000000000000000000000000000000000000000",
-        "vout": 0
-      },
-      {
-        "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
-        "vout": 0
-      }
-    ],
-    "outputs": [
-      {
-        "script": "OP_HASH160 a000000000000000000000000000000000000000 OP_EQUAL",
-        "value": 30000
-      },
-      {
-        "script": "OP_HASH160 b000000000000000000000000000000000000000 OP_EQUAL",
-        "value": 40000
-      }
-    ],
-    "expected": {
-      "inputs": [1, 3, 0, 2],
-      "outputs": [1, 0]
+  "inputs": [
+    {
+      "description": "Ordered by txId first, descending (little-endian ascending)",
+      "inputs": [
+        {
+          "txId": "aaaaaa0000000000000000000000000000000000000000000000000000000000",
+          "vout": 2
+        },
+        {
+          "txId": "bbbbbb0000000000000000000000000000000000000000000000000000000000",
+          "vout": 1
+        },
+        {
+          "txId": "cccccc0000000000000000000000000000000000000000000000000000000000",
+          "vout": 0
+        }
+      ],
+      "expected": [0, 1, 2]
+    },
+    {
+      "description": "Ordered by txId first, descending (little-endian ascending)",
+      "inputs": [
+        {
+          "txId": "aaaaaa000000000000000000000000000000000000000000000000000000ffcc",
+          "vout": 0
+        },
+        {
+          "txId": "bbbbbb00000000000000000000000000000000000000000000000000000ffbb",
+          "vout": 0
+        },
+        {
+          "txId": "cccccc000000000000000000000000000000000000000000000000000000ffaa",
+          "vout": 0
+        }
+      ],
+      "expected": [2, 1, 0]
+    },
+    {
+      "description": "Ordered by vout second, ascending",
+      "inputs": [
+        {
+          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "vout": 2
+        },
+        {
+          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "vout": 1
+        },
+        {
+          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "vout": 0
+        }
+      ],
+      "expected": [2, 1, 0]
+    },
+    {
+      "description": "Sorting is irrelevant for equivalent inputs",
+      "inputs": [
+        {
+          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "vout": 0
+        },
+        {
+          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "vout": 1
+        },
+        {
+          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "vout": 0
+        },
+        {
+          "txId": "ffffff0000000000000000000000000000000000000000000000000000000000",
+          "vout": 1
+        },
+        {
+          "txId": "ffffff0000000000000000000000000000000000000000000000000000000000",
+          "vout": 2
+        }
+      ],
+      "expected": [0, 2, 1, 3, 4]
     }
-  },
-  {
-    "description": "Amounts are sorted first, ascending",
-    "inputs": [],
-    "outputs": [
-      {
-        "script": "OP_HASH160 dd00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 3000
-      },
-      {
-        "script": "OP_HASH160 ee00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 2000
-      },
-      {
-        "script": "OP_HASH160 ff00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 1000
-      }
-    ],
-    "expected": {
-      "inputs": [],
-      "outputs": [1, 0]
+  ],
+  "outputs": [
+    {
+      "description": "Amounts are sorted first, ascending",
+      "outputs": [
+        {
+          "script": "OP_HASH160 dd00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 3000
+        },
+        {
+          "script": "OP_HASH160 ee00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 2000
+        },
+        {
+          "script": "OP_HASH160 ff00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 1000
+        }
+      ],
+      "expected": [2, 1, 0]
+    },
+    {
+      "description": "Scripts are sorted second, ascending",
+      "outputs": [
+        {
+          "script": "OP_HASH160 dd00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 1000
+        },
+        {
+          "script": "OP_HASH160 ee00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 1000
+        },
+        {
+          "script": "OP_HASH160 ff00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 2000
+        }
+      ],
+      "expected": [2, 0, 1]
+    },
+    {
+      "description": "Sorting is irrelevant for equivalent outputs",
+      "outputs": [
+        {
+          "script": "OP_HASH160 aa00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 1000
+        },
+        {
+          "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 1000
+        },
+        {
+          "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 1000
+        },
+        {
+          "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
+          "value": 2000
+        }
+      ],
+      "expected": [3, 0, 1, 2]
     }
-  },
-  {
-    "description": "Sorting is irrelevant for equivalent outputs",
-    "inputs": [],
-    "outputs": [
-      {
-        "script": "OP_HASH160 aa00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 1000
-      },
-      {
-        "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 1000
-      },
-      {
-        "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 1000
-      },
-      {
-        "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
-        "value": 2000
-      }
-    ],
-    "expected": {
-      "inputs": [],
-      "outputs": [3, 0, 1, 2]
-    }
-  }
+  ]
 ]
