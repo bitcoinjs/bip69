@@ -1,10 +1,5 @@
 function inputComparator (a, b) {
-  var aa = new Buffer(a.txId, 'hex')
-  var bb = new Buffer(b.txId, 'hex')
-  Array.prototype.reverse.call(aa)
-  Array.prototype.reverse.call(bb)
-
-  return aa.compare(bb) || a.vout - b.vout
+  return a.txId.localeCompare(b.txId) || a.vout - b.vout
 }
 
 function outputComparator (a, b) {
