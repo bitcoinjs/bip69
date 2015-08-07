@@ -5,6 +5,11 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
+Lexicographical Indexing of Transaction Inputs and Outputs.
+
+See [BIP69](https://github.com/kristovatlas/bips/blob/master/bip-0069.mediawiki) (draft PR).
+~~See [BIP69](https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki).~~
+
 
 ## Example
 
