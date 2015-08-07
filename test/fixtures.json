@@ -1,4 +1,4 @@
-[
+{
   "inputs": [
     {
       "description": "Ordered by txId first, descending (little-endian ascending)",
@@ -200,4 +200,4 @@
       "expected": [0, 1]
     }
   ]
-]
+}
