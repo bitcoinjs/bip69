@@ -1,58 +1,70 @@
 {
   "inputs": [
     {
-      "description": "Ordered by txId first, descending (little-endian ascending)",
+      "description": "Ordered by txId, descending (little-endian ascending)",
       "inputs": [
         {
-          "txId": "aaaaaa0000000000000000000000000000000000000000000000000000000000",
-          "vout": 2
-        },
-        {
-          "txId": "cccccc0000000000000000000000000000000000000000000000000000000000",
+          "txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "vout": 0
         },
         {
-          "txId": "bbbbbb0000000000000000000000000000000000000000000000000000000000",
-          "vout": 1
-        }
-      ],
-      "expected": [0, 2, 1]
-    },
-    {
-      "description": "Ordered by txId first, descending (little-endian ascending)",
-      "inputs": [
-        {
-          "txId": "bbbbbb00000000000000000000000000000000000000000000000000000ffbb",
+          "txId": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
           "vout": 0
         },
         {
-          "txId": "aaaaaa000000000000000000000000000000000000000000000000000000ffcc",
+          "txId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
           "vout": 0
         },
         {
-          "txId": "cccccc000000000000000000000000000000000000000000000000000000ffaa",
+          "txId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbff",
+          "vout": 0
+        },
+        {
+          "txId": "ffbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
           "vout": 0
         }
       ],
-      "expected": [1, 0, 2]
+      "expected": [0, 2, 4, 1, 3]
     },
     {
-      "description": "Ordered by vout second, ascending",
+      "description": "Ordered by vout, ascending",
       "inputs": [
         {
-          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
-          "vout": 2
-        },
-        {
-          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "vout": 1
         },
         {
-          "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+          "txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "vout": 2
+        },
+        {
+          "txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
           "vout": 0
         }
       ],
-      "expected": [2, 1, 0]
+      "expected": [2, 0, 1]
+    },
+    {
+      "description": "Ordered by txId, then vout",
+      "inputs": [
+        {
+          "txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "vout": 99
+        },
+        {
+          "txId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "vout": 99
+        },
+        {
+          "txId": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "vout": 0
+        },
+        {
+          "txId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "vout": 0
+        }
+      ],
+      "expected": [0, 3, 1, 2]
     },
     {
       "description": "Sorting is irrelevant for equivalent inputs",
