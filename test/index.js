@@ -4,12 +4,43 @@ var assert = require('assert')
 var bip69 = require('../')
 var fixtures = require('./fixtures')
 
-describe('bip69', function () {
-  fixtures.forEach(function (f) {
-    it('returns ' + f.expected + ' for ' + f.arguments, function () {
-      var actual = bip69.apply(null, f.arguments)
+// returns index-based order of sorted against original
+function getIndexOrder (original, sorted) {
+  return sorted.map(function (value) {
+    return original.indexOf(value)
+  })
+}
 
-      assert.strictEqual(actual, f.expected)
+describe('bip69', function () {
+  describe('sortInputs', function () {
+    fixtures.inputs.forEach(function (f) {
+      it('is ' + f.description, function () {
+        var actual = bip69.sortInputs(f.inputs)
+
+        assert.equal(getIndexOrder(f.inputs, actual), f.expected)
+      })
+    })
+  })
+
+  describe('sortOutputs', function () {
+    fixtures.inputs.forEach(function (f) {
+      it('is ' + f.description, function () {
+        var outputs = f.outputs.map(function (fo) {
+          if (fo.script) {
+            var bitcoinjs = require('bitcoinjs-lib')
+            fo.scriptHex = bitcoinjs.Script.fromASM(fo.script).toBuffer().toString('hex')
+          }
+
+          return {
+            script: new Buffer(fo.scriptHex),
+            value: fo.value
+          }
+        })
+
+        var actual = bip69.sortOutputs(outputs)
+
+        assert.equal(getIndexOrder(f.outputs, actual), f.expected)
+      })
     })
   })
 })
