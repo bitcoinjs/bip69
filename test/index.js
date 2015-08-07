@@ -23,7 +23,7 @@ describe('bip69', function () {
   })
 
   describe('sortOutputs', function () {
-    fixtures.inputs.forEach(function (f) {
+    fixtures.outputs.forEach(function (f) {
       it('is ' + f.description, function () {
         var outputs = f.outputs.map(function (fo) {
           if (fo.script) {
