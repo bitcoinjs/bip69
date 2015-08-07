@@ -14,6 +14,32 @@ See [BIP69](https://github.com/kristovatlas/bips/blob/master/bip-0069.mediawiki)
 ## Example
 
 ``` javascript
+var bitcoinjs = require('bitcoinjs-lib')
+var bip69 = require('bip69')
+
+var inputs = [{
+	"txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+	"vout": 0
+}, ...]
+var outputs = [{
+	"script": new Buffer("76a9145be32612930b8323add2212a4ec03c1562084f8488ac", "hex"),
+	"value": 40000000000
+}, ...]
+
+// ...
+
+var sorted = bip69(inputs, outputs)
+var txb = new bitcoinjs.TransactionBuilder()
+
+sorted.inputs.forEach(function (input) {
+	txb.addInput(input.txId, input.vout)
+})
+
+sorted.outputs.forEach(function (output) {
+	txb.addOutput(bitcoinjs.Script.fromBuffer(output.script), output.value)
+})
+
+// ... and so on
 ```
 
 ## LICENSE [MIT](LICENSE)
