@@ -1,0 +1,42 @@
+{
+  "name": "bip69",
+  "version": "0.0.1",
+  "description": "bip69",
+  "author": "Daniel Cousens",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcousens/bip69.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dcousens/bip69/issues"
+  },
+  "homepage": "https://github.com/dcousens/bip69",
+  "keywords": [
+    "bip69"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "coverage": "mocha --require blanket -R travis-cov",
+    "coverage-local": "mocha --require blanket -R html-cov",
+    "standard": "standard",
+    "test": "npm run standard && npm run unit",
+    "unit": "mocha"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [""],
+      "data-cover-never": ["node_modules", "test"]
+    },
+    "travis-cov": {
+      "threshold": 100
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "blanket": "*",
+    "mocha": "*",
+    "standard": "*",
+    "travis-cov": "*"
+  }
+}

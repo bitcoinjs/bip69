@@ -1,0 +1,85 @@
+[
+  {
+    "description":
+    "inputs": [
+      {
+        "txId": "aaaaaa0000000000000000000000000000000000000000000000000000000000",
+        "vout": 0
+      },
+      {
+        "txId": "bbbbbb0000000000000000000000000000000000000000000000000000000000",
+        "vout": 0
+      },
+      {
+        "txId": "cccccc0000000000000000000000000000000000000000000000000000000000",
+        "vout": 0
+      },
+      {
+        "txId": "dddddd0000000000000000000000000000000000000000000000000000000000",
+        "vout": 0
+      }
+    ],
+    "outputs": [
+      {
+        "script": "OP_HASH160 a000000000000000000000000000000000000000 OP_EQUAL",
+        "value": 30000
+      },
+      {
+        "script": "OP_HASH160 b000000000000000000000000000000000000000 OP_EQUAL",
+        "value": 40000
+      }
+    ],
+    "expected": {
+      "inputs": [1, 3, 0, 2],
+      "outputs": [1, 0]
+    }
+  },
+  {
+    "description": "Amounts are sorted first, ascending",
+    "inputs": [],
+    "outputs": [
+      {
+        "script": "OP_HASH160 dd00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 3000
+      },
+      {
+        "script": "OP_HASH160 ee00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 2000
+      },
+      {
+        "script": "OP_HASH160 ff00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 1000
+      }
+    ],
+    "expected": {
+      "inputs": [],
+      "outputs": [1, 0]
+    }
+  },
+  {
+    "description": "Sorting is irrelevant for equivalent outputs",
+    "inputs": [],
+    "outputs": [
+      {
+        "script": "OP_HASH160 aa00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 1000
+      },
+      {
+        "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 1000
+      },
+      {
+        "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 1000
+      },
+      {
+        "script": "OP_HASH160 bb00000000000000000000000000000000000000 OP_EQUAL",
+        "value": 2000
+      }
+    ],
+    "expected": {
+      "inputs": [],
+      "outputs": [3, 0, 1, 2]
+    }
+  }
+]
