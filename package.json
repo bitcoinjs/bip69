@@ -1,7 +1,7 @@
 {
   "name": "bip69",
   "version": "1.0.0",
-  "description": "bip69",
+  "description": "Lexicographical Indexing of Bitcoin Transaction Inputs and Outputs.",
   "author": "Daniel Cousens",
   "license": "MIT",
   "repository": {
@@ -13,7 +13,8 @@
   },
   "homepage": "https://github.com/dcousens/bip69",
   "keywords": [
-    "bip69"
+    "bip69",
+    "bitcoin"
   ],
   "main": "index.js",
   "scripts": {
