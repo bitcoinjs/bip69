@@ -28,14 +28,16 @@ var outputs = [{
 
 // ...
 
-var sorted = bip69(inputs, outputs)
+var sortedInputs = bip69.sortInputs(inputs)
+var sortedOutputs = bip69.sortOutputs(outputs)
+
 var txb = new bitcoinjs.TransactionBuilder()
 
-sorted.inputs.forEach(function (input) {
+sortetInputs.forEach(function (input) {
 	txb.addInput(input.txId, input.vout)
 })
 
-sorted.outputs.forEach(function (output) {
+sortedOutputs.forEach(function (output) {
 	txb.addOutput(bitcoinjs.Script.fromBuffer(output.script), output.value)
 })
 
