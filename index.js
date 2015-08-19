@@ -14,12 +14,7 @@ function sortOutputs (outputs) {
   return outputs.concat().sort(outputComparator)
 }
 
-module.exports = function bip69 (inputs, outputs) {
-  return {
-    inputs: sortInputs(inputs),
-    outputs: sortOutputs(outputs)
-  }
+module.exports = {
+  sortInputs: sortInputs,
+  sortOutputs: sortOutputs
 }
-
-module.exports.sortInputs = sortInputs
-module.exports.sortOutputs = sortOutputs
