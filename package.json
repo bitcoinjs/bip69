@@ -1,6 +1,6 @@
 {
   "name": "bip69",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Lexicographical Indexing of Bitcoin Transaction Inputs and Outputs.",
   "author": "Daniel Cousens",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "bip69",
     "bitcoin"
   ],
-  "main": "index.js",
+  "main": "./bitcoinjs.js",
   "scripts": {
     "coverage": "mocha --require blanket -R travis-cov",
     "coverage-local": "mocha --require blanket -R html-cov",
@@ -38,7 +38,9 @@
       "threshold": 100
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "buffer-compare": "^1.0.0"
+  },
   "devDependencies": {
     "blanket": "*",
     "mocha": "*",

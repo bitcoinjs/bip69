@@ -18,27 +18,27 @@ var bitcoinjs = require('bitcoinjs-lib')
 var bip69 = require('bip69')
 
 var inputs = [{
-	"txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-	"vout": 0
+  "txId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "vout": 0
 }, ...]
 var outputs = [{
-	"script": new Buffer("76a9145be32612930b8323add2212a4ec03c1562084f8488ac", "hex"),
-	"value": 40000000000
+  "script": new Buffer("76a9145be32612930b8323add2212a4ec03c1562084f8488ac", "hex"),
+  "value": 40000000000
 }, ...]
 
 // ...
 
-var sortedInputs = bip69.sortInputs(inputs)
-var sortedOutputs = bip69.sortOutputs(outputs)
+var sortedInputs = bip69.bitcoinjs.sortInputs(inputs)
+var sortedOutputs = bip69.bitcoinjs.sortOutputs(outputs)
 
 var txb = new bitcoinjs.TransactionBuilder()
 
 sortetInputs.forEach(function (input) {
-	txb.addInput(input.txId, input.vout)
+  txb.addInput(input.txId, input.vout)
 })
 
 sortedOutputs.forEach(function (output) {
-	txb.addOutput(bitcoinjs.Script.fromBuffer(output.script), output.value)
+  txb.addOutput(bitcoinjs.Script.fromBuffer(output.script), output.value)
 })
 
 // ... and so on
