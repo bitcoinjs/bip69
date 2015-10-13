@@ -22,7 +22,9 @@
     "coverage-local": "mocha --require blanket -R html-cov",
     "standard": "standard",
     "test": "npm run standard && npm run unit",
-    "unit": "mocha"
+    "unit": "npm run unit:node && npm run unit:browser",
+    "unit:browser": "karma start karma.conf.js",
+    "unit:node": "mocha"
   },
   "config": {
     "blanket": {
@@ -41,6 +43,12 @@
   "dependencies": {},
   "devDependencies": {
     "blanket": "*",
+    "karma": "^0.13.8",
+    "karma-browserify": "^4.4.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-detect-browsers": "^2.0.1",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
     "mocha": "*",
     "standard": "*",
     "travis-cov": "*"

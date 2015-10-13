@@ -2,10 +2,16 @@ sudo: false
 language: node_js
 node_js:
   - "4.0.0"
-  - "0.12"
   - "iojs"
+  - "0.12"
+addons:
+  firefox: "38.0"
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 env:
   - TEST_SUITE=coverage
   - TEST_SUITE=standard
-  - TEST_SUITE=unit
+  - TEST_SUITE=unit:browser
+  - TEST_SUITE=unit:node
 script: "npm run-script $TEST_SUITE"
