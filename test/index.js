@@ -1,6 +1,4 @@
-/* global describe, it */
-
-var assert = require('assert')
+var test = require('tape').test
 var bip69 = require('../')
 var fixtures = require('./fixtures')
 
@@ -11,30 +9,24 @@ function getIndexOrder (original, sorted) {
   })
 }
 
-describe('bip69', function () {
-  describe('sortInputs', function () {
-    fixtures.inputs.forEach(function (f) {
-      it('is ' + f.description, function () {
-        var actual = bip69.sortInputs(f.inputs)
-
-        assert.deepEqual(getIndexOrder(f.inputs, actual), f.expected)
-      })
-    })
+fixtures.inputs.forEach(function (f) {
+  test('sortInputs: is ' + f.description, function (t) {
+    var actual = bip69.sortInputs(f.inputs)
+    t.same(getIndexOrder(f.inputs, actual), f.expected)
+    t.end()
   })
+})
 
-  describe('sortOutputs', function () {
-    fixtures.outputs.forEach(function (f) {
-      it('is ' + f.description, function () {
-        var outputs = f.outputs.map(function (fo) {
-          return {
-            script: new Buffer(fo.script),
-            value: fo.value
-          }
-        })
-        var actual = bip69.sortOutputs(outputs)
-
-        assert.deepEqual(getIndexOrder(outputs, actual), f.expected)
-      })
+fixtures.outputs.forEach(function (f) {
+  test('sortOutputs: is ' + f.description, function (t) {
+    var outputs = f.outputs.map(function (fo) {
+      return {
+        script: new Buffer(fo.script),
+        value: fo.value
+      }
     })
+    var actual = bip69.sortOutputs(outputs)
+    t.same(getIndexOrder(outputs, actual), f.expected)
+    t.end()
   })
 })
