@@ -10,6 +10,7 @@ Lexicographical Indexing of Transaction Inputs and Outputs.
 See [BIP69](https://github.com/kristovatlas/bips/blob/master/bip-0069.mediawiki) (draft PR).
 ~~See [BIP69](https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki).~~
 
+\* *Works only with node.js 0.11 or greater (because require Buffer.compare)*
 
 ## Example
 
