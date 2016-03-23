@@ -1,7 +1,7 @@
 # bip69
 
-[![TRAVIS](https://secure.travis-ci.org/bitcoinjs/bip69.png)](http://travis-ci.org/bitcoinjs/bip69)
-[![NPM](http://img.shields.io/npm/v/bip69.svg)](https://www.npmjs.org/package/bip69)
+[![NPM Package](https://img.shields.io/npm/v/bip69.svg?style=flat-square)](https://www.npmjs.org/package/bip69)
+[![Build Status](https://img.shields.io/travis/bitcoinjs/bip69.svg?branch=master&style=flat-square)](https://travis-ci.org/bitcoinjs/bip69)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
@@ -33,7 +33,7 @@ var sortedOutputs = bip69.sortOutputs(outputs)
 
 var txb = new bitcoinjs.TransactionBuilder()
 
-sortetInputs.forEach(function (input) {
+sortedInputs.forEach(function (input) {
 	txb.addInput(input.txId, input.vout)
 })
 
@@ -44,4 +44,6 @@ sortedOutputs.forEach(function (output) {
 // ... and so on
 ```
 
-## LICENSE [MIT](LICENSE)
+## LICENSE
+
+MIT
