@@ -2,47 +2,33 @@
   "name": "bip69",
   "version": "2.0.0",
   "description": "Lexicographical Indexing of Bitcoin Transaction Inputs and Outputs.",
-  "author": "Daniel Cousens",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bitcoinjs/bip69.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bitcoinjs/bip69/issues"
-  },
-  "homepage": "https://github.com/bitcoinjs/bip69",
   "keywords": [
     "bip69",
     "bitcoin"
   ],
+  "homepage": "https://github.com/bitcoinjs/bip69",
+  "bugs": {
+    "url": "https://github.com/bitcoinjs/bip69/issues"
+  },
+  "license": "MIT",
+  "author": "Daniel Cousens",
+  "files": [
+    "index.js"
+  ],
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitcoinjs/bip69.git"
+  },
   "scripts": {
-    "coverage": "mocha --require blanket -R travis-cov",
-    "coverage-local": "mocha --require blanket -R html-cov",
+    "coverage": "nyc npm run unit",
     "standard": "standard",
     "test": "npm run standard && npm run unit",
-    "unit": "mocha"
+    "unit": "tape test/index.js"
   },
-  "config": {
-    "blanket": {
-      "pattern": [
-        ""
-      ],
-      "data-cover-never": [
-        "node_modules",
-        "test"
-      ]
-    },
-    "travis-cov": {
-      "threshold": 100
-    }
-  },
-  "dependencies": {},
   "devDependencies": {
-    "blanket": "*",
-    "mocha": "*",
-    "standard": "*",
-    "travis-cov": "*"
+    "nyc": "^6.1.1",
+    "standard": "^6.0.8",
+    "tape": "^4.5.1"
   }
 }
