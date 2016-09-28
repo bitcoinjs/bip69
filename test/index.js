@@ -4,7 +4,7 @@ var test = require('tape')
 
 function augment (array) {
   return array.map(function (x, i) {
-    return Object.assign({}, x, { i })
+    return Object.assign({}, x, { i: i })
   })
 }
 
