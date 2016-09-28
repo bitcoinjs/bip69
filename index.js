@@ -34,8 +34,8 @@ function sortOutputs (outputs) {
 }
 
 module.exports = {
-  inputComparator,
-  outputComparator,
+  inputComparator: inputComparator,
+  outputComparator: outputComparator,
 
   sortInputs: sortInputs,
   sortOutputs: sortOutputs
