@@ -1,32 +1,50 @@
-var test = require('tape').test
 var bip69 = require('../')
 var fixtures = require('./fixtures')
+var test = require('tape')
 
-// returns index-based order of sorted against original
-function getIndexOrder (original, sorted) {
-  return sorted.map(function (value) {
-    return original.indexOf(value)
-  })
+function augment (array) {
+  return array.map((x, i) => Object.assign({}, x, { i }))
 }
 
-fixtures.inputs.forEach(function (f) {
-  test('sortInputs: is ' + f.description, function (t) {
-    var actual = bip69.sortInputs(f.inputs)
-    t.same(getIndexOrder(f.inputs, actual), f.expected)
-    t.end()
+function fInputs (inputs) {
+  return inputs.map(x => Object.assign({}, x, {
+    txId: [].reverse.call(new Buffer(x.txId, 'hex'))
+  }))
+}
+
+function fOutputs (outputs) {
+  return outputs.map(x => Object.assign({}, x, {
+    script: new Buffer(x.script, 'hex')
+  }))
+}
+
+fixtures.inputs.forEach((f) => {
+  test('sortInputs ' + f.description, (t) => {
+    t.plan(1)
+
+    var inputs = augment(f.inputs)
+    var actual = bip69.sortInputs(inputs)
+
+    t.same(actual.map(x => x.i), f.expected)
+  })
+
+  test('sortInputs (w/ txHash Buffers) ' + f.description, (t) => {
+    t.plan(1)
+
+    var inputs = augment(fInputs(f.inputs))
+    var actual = bip69.sortInputs(inputs)
+
+    t.same(actual.map(x => x.i), f.expected)
   })
 })
 
-fixtures.outputs.forEach(function (f) {
-  test('sortOutputs: is ' + f.description, function (t) {
-    var outputs = f.outputs.map(function (fo) {
-      return {
-        script: new Buffer(fo.script),
-        value: fo.value
-      }
-    })
+fixtures.outputs.forEach((f) => {
+  test('sortOutputs ' + f.description, (t) => {
+    t.plan(1)
+
+    var outputs = augment(fOutputs(f.outputs))
     var actual = bip69.sortOutputs(outputs)
-    t.same(getIndexOrder(outputs, actual), f.expected)
-    t.end()
+
+    t.same(actual.map(x => x.i), f.expected)
   })
 })
