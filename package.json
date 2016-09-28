@@ -24,7 +24,7 @@
     "coverage": "nyc --branches 100 --functions 100 --check-coverage npm run unit",
     "standard": "standard",
     "test": "npm run standard && npm run unit",
-    "unit": "tape test/index.js"
+    "unit": "tape test/*.js"
   },
   "devDependencies": {
     "nyc": "^6.1.1",
