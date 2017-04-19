@@ -44,6 +44,4 @@ sortedOutputs.forEach(function (output) {
 // ... and so on
 ```
 
-## LICENSE
-
-MIT
+## LICENSE [MIT](LICENSE)
