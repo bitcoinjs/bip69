@@ -1,3 +1,5 @@
+var Buffer = require('safe-buffer').Buffer
+
 // Previous transaction hashes (in reversed byte-order) are to be sorted in ascending order, lexicographically.
 // In the event of two matching transaction hashes, the respective previous output indices will be compared by their integer value, in ascending order.
 // If the previous output indices match, the inputs are considered equal.
@@ -9,8 +11,8 @@ function inputComparator (aHash, aVout, bHash, bVout) {
   if (!Buffer.isBuffer(aHash) ||
       !Buffer.isBuffer(bHash)) throw new TypeError('Expected Buffer')
 
-  var aHashR = [].reverse.call(new Buffer(aHash))
-  var bHashR = [].reverse.call(new Buffer(bHash))
+  var aHashR = [].reverse.call(Buffer.from(aHash))
+  var bHashR = [].reverse.call(Buffer.from(bHash))
   return aHashR.compare(bHashR) || aVout - bVout
 }
 

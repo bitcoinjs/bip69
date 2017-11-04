@@ -32,6 +32,9 @@
     "tape": "*"
   },
   "engines": {
-    "node": ">0.10"
+    "node": ">=4.5.0"
+  },
+  "dependencies": {
+    "safe-buffer": "^5.1.1"
   }
 }
