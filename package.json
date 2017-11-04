@@ -1,6 +1,6 @@
 {
   "name": "bip69",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Lexicographical Indexing of Bitcoin Transaction Inputs and Outputs.",
   "keywords": [
     "bip69",
