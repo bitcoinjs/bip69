@@ -11,7 +11,7 @@ function augment (array) {
 function fInputs (inputs) {
   return inputs.map(function (x) {
     return Object.assign({}, x, {
-      txId: [].reverse.call(new Buffer(x.txId, 'hex'))
+      txId: [].reverse.call(Buffer.from(x.txId, 'hex'))
     })
   })
 }
@@ -19,7 +19,7 @@ function fInputs (inputs) {
 function fOutputs (outputs) {
   return outputs.map(function (x) {
     return Object.assign({}, x, {
-      script: new Buffer(x.script, 'hex')
+      script: Buffer.from(x.script, 'hex')
     })
   })
 }
